@@ -21,8 +21,13 @@ const Items = (props) => {
 
   const decreaseHandler = (index) => {
     const newQuantities = [...quantities];
-    newQuantities[index] -= 1;
-    setQuantities(newQuantities);
+    if (newQuantities[index] > 1) {
+      newQuantities[index] -= 1;
+      setQuantities(newQuantities);
+    } else {
+      newQuantities[index] = 1;
+      setQuantities(newQuantities);
+    }
   };
 
   const ListItem = length ? (
